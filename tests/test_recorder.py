@@ -1,15 +1,16 @@
 import unittest
 import multiprocessing
+import queue
 import tempfile
 import time
 import os
 import json
-from ..core.recorder import StateRecorder
-from ..core.fsm import TransitionEvent
+from state_monitoring_system.core.recorder import StateRecorder
+from state_monitoring_system.core.fsm import TransitionEvent
 
 class TestRecorder(unittest.TestCase):
     def test_recorder_logging(self):
-        event_queue = multiprocessing.Queue()
+        event_queue = queue.Queue()
         manager = multiprocessing.Manager()
         shared_state = manager.dict()
         

@@ -1,7 +1,7 @@
 import unittest
 import multiprocessing
 import queue
-from ..core.fsm import State, InputSource, StateMachineEngine, TransitionEvent
+from state_monitoring_system.core.fsm import State, InputSource, StateMachineEngine, TransitionEvent
 
 class MockState(State):
     def __init__(self, name: str):
@@ -40,7 +40,7 @@ class TestFSM(unittest.TestCase):
     def test_state_transitions(self):
         start_state = MockState("STATE_1")
         input_source = MockInput(["STAY", "NEXT", "STAY"])
-        event_queue = multiprocessing.Queue()
+        event_queue = queue.Queue()
         
         engine = StateMachineEngine(start_state, input_source, event_queue)
         engine.run()
