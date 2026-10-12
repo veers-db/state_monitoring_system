@@ -10,13 +10,13 @@ class HotelFrontDeskSimulator(InputSource):
         self._index = 0
         
         if scenario == "standard":
-            self.steps = ["RESERVE", "CHECK_IN", "CHECK_OUT"]
+            self.steps = ["RESERVE", "CHECK_IN", "COMPLETE"]
         elif scenario == "cancelled":
             self.steps = ["RESERVE", "CANCEL"]
         elif scenario == "check_in":
-            self.steps = ["CHECK_IN", "CHECK_OUT"]
+            self.steps = ["CHECK_IN", "COMPLETE"]
         else:
-            self.steps = ["RESERVE", "CHECK_IN", "CHECK_OUT"]
+            self.steps = ["RESERVE", "CHECK_IN", "COMPLETE"]
             
     def get_input(self) -> Any:
         time.sleep(self.interval)

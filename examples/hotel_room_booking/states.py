@@ -36,7 +36,7 @@ class CheckedIn(HotelState):
         return "CHECKED_IN"
     
     def handle_input(self, input_data: Any) -> Optional['State']:
-        if input_data == "CHECK_OUT":
+        if input_data == "COMPLETE":
             return Completed()
         return None
 
