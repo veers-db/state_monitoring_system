@@ -13,6 +13,8 @@ class HotelFrontDeskSimulator(InputSource):
             self.steps = ["RESERVE", "CHECK_IN", "CHECK_OUT"]
         elif scenario == "cancelled":
             self.steps = ["RESERVE", "CANCEL"]
+        elif scenario == "check_in":
+            self.steps = ["CHECK_IN", "CHECK_OUT"]
         else:
             self.steps = ["RESERVE", "CHECK_IN", "CHECK_OUT"]
             

@@ -14,6 +14,8 @@ class Available(HotelState):
     def handle_input(self, input_data: Any) -> Optional['State']:
         if input_data == "RESERVE":
             return Reserved()
+        elif input_data == "CHECK_IN":
+            return CheckedIn()
         return None
 
 class Reserved(HotelState):
