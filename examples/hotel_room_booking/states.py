@@ -36,17 +36,17 @@ class CheckedIn(HotelState):
         return "CHECKED_IN"
     
     def handle_input(self, input_data: Any) -> Optional['State']:
-        if input_data == "COMPLETE":
-            return Completed()
+        if input_data == "CHECK_OUT":
+            return CheckedOut()
         return None
 
-class Completed(HotelState):
+class CheckedOut(HotelState):
     @property
     def name(self) -> str:
-        return "COMPLETED"
+        return "CHECKED_OUT"
     
     def handle_input(self, input_data: Any) -> Optional['State']:
-        return None # Terminal state
+        return None
 
 class Cancelled(HotelState):
     @property
@@ -54,4 +54,4 @@ class Cancelled(HotelState):
         return "CANCELLED"
     
     def handle_input(self, input_data: Any) -> Optional['State']:
-        return None # Terminal state
+        return None
